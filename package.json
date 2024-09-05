@@ -1,0 +1,21 @@
+{
+    "name": "rust-axum",
+    "private": true,
+    "version": "3.0.3",
+    "description": "An example of a Rust/Axum virtual Perspective server",
+    "scripts": {
+        "start": "cargo run"
+    },
+    "keywords": [],
+    "license": "Apache-2.0",
+    "dependencies": {
+        "@finos/perspective": "^3.0.3",
+        "@finos/perspective-viewer": "^3.0.3",
+        "@finos/perspective-viewer-d3fc": "^3.0.3",
+        "@finos/perspective-viewer-datagrid": "^3.0.3",
+        "@finos/perspective-workspace": "^3.0.3",
+        "express": "^4.19.2",
+        "express-ws": "^5.0.2",
+        "prettier": "^3.3.3"
+    }
+}

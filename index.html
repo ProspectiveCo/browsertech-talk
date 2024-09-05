@@ -1,0 +1,140 @@
+<!doctype html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no" />
+        <script type="module" src="/node_modules/@finos/perspective-viewer/dist/cdn/perspective-viewer.js"></script>
+        <script type="module" src="/node_modules/@finos/perspective-workspace/dist/cdn/perspective-workspace.js"></script>
+        <script type="module" src="/node_modules/@finos/perspective-viewer-datagrid/dist/cdn/perspective-viewer-datagrid.js"></script>
+        <script type="module" src="/node_modules/@finos/perspective-viewer-d3fc/dist/cdn/perspective-viewer-d3fc.js"></script>
+        <link rel="preload" href="/node_modules/@finos/perspective-viewer/dist/cdn/perspective-viewer.wasm" as="fetch" type="application/wasm" crossorigin="anonymous" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/styles/monokai.min.css" />
+        <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/highlight.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/languages/rust.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/languages/javascript.min.js"></script>
+
+        <link rel="stylesheet" crossorigin="anonymous" href="/node_modules/@finos/perspective-viewer/dist/css/pro.css" />
+        <link rel="stylesheet" crossorigin="anonymous" href="/node_modules/@finos/perspective-workspace/dist/css/pro.css" />
+        <script type="module" src="client.js"></script>
+        <style>
+            html {
+                font-family: Arial;
+            }
+            perspective-workspace {
+                background-color: white;
+                position: absolute;
+                top: 35%;
+                left: 25%;
+                bottom: 0;
+                right: 0;
+                width: 75%;
+                height: 65%;
+            }
+
+            #scoreboard {
+                position: absolute;
+                top: 0;
+                left: 0;
+                bottom: 0;
+                right: 75%;
+                padding: 15px;
+                overflow-y: scroll;
+            }
+
+            #candidates {
+                position: absolute;
+                top: 0;
+                left: 25%;
+                bottom: 65%;
+                right: 0;
+                display: flex;
+                flex-direction: row;
+            }
+
+            pre {
+                z-index: 1;
+                border: 1px solid #999;
+                border-radius: 3px;
+                overflow: scroll;
+                height: 100%;
+                overflow: auto;
+            }
+
+            code {
+                height: 100%;
+            }
+
+            code.lose {
+                opacity: 0.25;
+            }
+
+            #candidates > div {
+                flex: 1 1 50%;
+                margin: 10px;
+                overflow: hidden;
+            }
+
+            #scoreboard div {
+                display: flex;
+                flex-direction: row;
+            }
+
+            button {
+                border: 1px solid #999;
+                border-radius: 3px;
+                margin: 4px;
+                flex: 1 1 50%;
+                cursor: pointer;
+                font-family: Arial;
+                font-size: 14px;
+                padding: 15px 4px;
+            }
+
+            .running {
+                pointer-events: none;
+            }
+
+            .win button {
+                border-color: #006611;
+                background-color: #006611;
+                color: white;
+            }
+
+            .running button:not(.selected) {
+                opacity: 0.3;
+            }
+
+            .lose button {
+                border-color: #660000;
+                background-color: #660000;
+                color: white;
+            }
+
+            .disabled {
+                pointer-events: none;
+                opacity: 0.5;
+            }
+
+            #total_score {
+                font-size: 18px;
+                padding: 8px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="candidates">
+            <div>
+                <span>JavaScript</span>
+                <pre><code id="js_pre" class="language-javascript"></code></pre>
+            </div>
+            <div>
+                <span>Rust (WebAssembly)</span>
+                <pre><code id="rust_pre" class="language-rust"></code></pre>
+            </div>
+        </div>
+        <div id="scoreboard">
+            <div id="total_score">Scoreboard</div>
+            <br />
+        </div>
+        <perspective-workspace></perspective-workspace>
+    </body>
+</html>

@@ -1,0 +1,18 @@
+{
+    "tabWidth": 4,
+    "overrides": [
+        {
+            "files": ["*.html"],
+            "options": {
+                "printWidth": 200,
+                "tabWidth": 4
+            }
+        },
+        {
+            "files": ["*.md"],
+            "options": {
+                "proseWrap": "always"
+            }
+        }
+    ]
+}
