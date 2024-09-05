@@ -1,0 +1,89 @@
+// ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+// ┃ ██████ ██████ ██████       █      █      █      █      █ █▄  ▀███ █       ┃
+// ┃ ▄▄▄▄▄█ █▄▄▄▄▄ ▄▄▄▄▄█  ▀▀▀▀▀█▀▀▀▀▀ █ ▀▀▀▀▀█ ████████▌▐███ ███▄  ▀█ █ ▀▀▀▀▀ ┃
+// ┃ █▀▀▀▀▀ █▀▀▀▀▀ █▀██▀▀ ▄▄▄▄▄ █ ▄▄▄▄▄█ ▄▄▄▄▄█ ████████▌▐███ █████▄   █ ▄▄▄▄▄ ┃
+// ┃ █      ██████ █  ▀█▄       █ ██████      █      ███▌▐███ ███████▄ █       ┃
+// ┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫
+// ┃ Copyright (c) 2017, the Perspective Authors.                              ┃
+// ┃ ╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌ ┃
+// ┃ This file is part of the Perspective library, distributed under the terms ┃
+// ┃ of the [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0). ┃
+// ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
+:host {
+    position: fixed;
+    z-index: 10000;
+    outline: none;
+    font-size: 0.75em;
+    border: inherit;
+    box-shadow: 0 2px 4px 0 rgb(0 0 0 / 10%);
+    user-select: none;
+    background-color: white;
+    padding: 6px;
+
+    display: flex;
+    flex-direction: column;
+    min-width: 80px;
+
+    code {
+        font-family: var(--interface-monospace--font-family), monospace;
+    }
+
+    input {
+        margin-left: 12px;
+        margin-right: 12px;
+        padding: 0;
+        border: none;
+        border-bottom: 1px solid var(--inactive--color, #ccc);
+        background: transparent;
+        font-family: var(--interface-monospace--font-family), monospace;
+        color: inherit;
+        outline: none;
+    }
+
+    .invalid {
+        color: var(--error--color, #ff0000);
+        border-color: var(--error--color, #ff0000);
+    }
+
+    .selected {
+        background-color: rgba(0, 0, 0, 0.05);
+    }
+
+    .dropdown-group-label {
+        font-size: var(--label--font-size, 0.75em);
+    }
+
+    .dropdown-group-container {
+        display: flex;
+        flex-direction: column;
+        margin-left: 12px;
+        margin-right: 12px;
+    }
+
+    span {
+        min-height: 21px;
+        display: inline-flex;
+        align-items: center;
+    }
+
+    .dropdown-group-container span {
+        cursor: pointer;
+    }
+
+    .no-results {
+        font-style: italics;
+        padding: 6px 24px;
+        color: #ccc;
+    }
+}
+
+:host(:hover) {
+    .selected {
+        background-color: transparent;
+    }
+
+    .dropdown-group-container span:hover {
+        background-color: rgba(0, 0, 0, 0.05);
+    }
+}
